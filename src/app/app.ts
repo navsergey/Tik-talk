@@ -17,8 +17,9 @@ export class App {
   profiles:Profile[] = []
 
   constructor() {
-    this.profileService.getTestAccounts().subscribe( val => {
+    this.profileService.getTestAccounts().subscribe( val => { //Гет запрос профилей пользователей
       this.profiles = val;
+      console.log(this.profiles); // Проверьте что массив не пустой
     })
   }
 }

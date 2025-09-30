@@ -1,6 +1,7 @@
 export  interface Profile {
    id : number,
    username :  string,
+   description :  string,
    avatarUrl :  string | null ,
    subscribersAmount : number,
    firstName :  string,
@@ -8,5 +9,4 @@ export  interface Profile {
    isActive : boolean,
    stack : string[],
    city :  string,
-   description :  string,
 }
