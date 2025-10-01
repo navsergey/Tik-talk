@@ -1,8 +1,1 @@
-<div class="profile-card__wrapper">
-  @for (profile of profiles; track profile.id){
-    <app-profile-card [profile]="profile"
-    ></app-profile-card>
-    <!--Передача данных в дочерний компонент profile-card с таким же названием profile циклом (см @Input в profile-card.ts)-->
-    <!--Это называется binding-->
-  }
-</div>
+<router-outlet></router-outlet>
