@@ -6,3 +6,26 @@
   margin: 0 5%;
   gap: 200px;
 }
+
+.login-from{
+  width: 440px;
+}
+
+.password-input{
+  position: relative;
+}
+
+.password-eye-btn{
+  position: absolute;
+  top: 70%;
+  right: 12px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #FAF4F0;
+  cursor: pointer;
+}
+
+.password-eye-btn.active{
+  color: var(--primary-color);
+}
