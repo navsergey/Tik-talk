@@ -1,1 +1,20 @@
-<p>sidebar works!</p>
+<img
+  class="ml16 mb20"
+  src="/assets/svg/logo-small.svg"
+  alt="">
+
+<nav>
+  <ul class="main-menu-list">
+    @for (menuItem of menuItems; track menuItem.icon) {
+      <li>
+        <button class="menu-item">
+          <svg [icon]="menuItem.icon"></svg>
+          <span>{{ menuItem.label }}</span>
+        </button>
+      </li>
+    }
+  </ul>
+</nav>
+<p class="medium-text mb20">Подписчики</p>
+
+<app-subscriber-card></app-subscriber-card>
