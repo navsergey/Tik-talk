@@ -9,6 +9,7 @@
   --primary-color : #AE7AFF;
   --grey-color : #5F646D;
   --dark-hover-color : #161616;;
+  --light-transparent-color: rgba(255, 255, 255, 0.75);
 }
 
 *,
@@ -73,6 +74,12 @@ body {
   font-weight: 800;
 }
 
+.h4{
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 133%;
+}
+
 .h6{
   font-size: 18px;
   line-height: 24px;
@@ -95,14 +102,14 @@ body {
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20;
+  line-height: 20px;
 }
 
 .tt-control-label {
   display: block;
   font-weight: 700;
   font-size: 12px;
-  line-height: 16px;
+  line-height: 20px;
 }
 
 .tt-input{
@@ -119,3 +126,40 @@ body {
   font-family: "JetBrains Mono", sans-serif;
   color: var(--light-color);
 }
+
+.tt-from-label{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tt-from-label__text{
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--light-transparent-color);
+}
+
+.tt-form-input{
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  border: none;
+  background: none;
+  color: var(--light-color);
+  border-bottom: 1px solid var(--light-color);
+  height: 33px;
+
+  &:focus-visible{
+    outline: 1px solid var(--primary-color);
+  }
+}
+
+.tt-text-area {
+  height: 84px;
+  resize: none;
+}
+
+

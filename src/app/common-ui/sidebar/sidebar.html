@@ -7,10 +7,10 @@
   <ul class="main-menu-list">
     @for (menuItem of menuItems; track menuItem.icon) {
       <li>
-        <button class="menu-item">
+        <a class="menu-item" [routerLink]="[menuItem.link]">
           <svg [icon]="menuItem.icon"></svg>
           <span>{{ menuItem.label }}</span>
-        </button>
+        </a>
       </li>
     }
   </ul>
@@ -29,10 +29,7 @@
     class="to-subscribers-link medium-text">
     Все подписчики
   </a>
-    <img
-      src="/assets/svg/arrow.svg"
-      alt=""
-      class="to-subscribers-icon">
+    <svg icon="arrow" class="to-subscribers-icon"></svg>
 </div>
 
 <footer class="sidebar__footer">
@@ -46,7 +43,7 @@
     <div class="medium-text username-text">{{ me.username }}</div>
 
     <a [routerLink]="['settings']" class="settings-btn">
-      <img src="/assets/svg/settings.svg" alt="">
+      <svg icon="settings"></svg>
     </a>
   }
 </footer>
