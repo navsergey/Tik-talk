@@ -10,7 +10,7 @@ export class SvgIcon {
   @Input() icon = ''
 
   get href() {
-    return `/assets/svg/${this.icon}.svg#${this.icon}` //Не работает как в видео
+    return `/assets/svg/${this.icon}.svg#${this.icon}`
   }
 }
 

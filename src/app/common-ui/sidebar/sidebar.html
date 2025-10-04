@@ -17,4 +17,36 @@
 </nav>
 <p class="medium-text mb20">Подписчики</p>
 
-<app-subscriber-card></app-subscriber-card>
+@for (profile of subscribers$ | async; track profile.id){
+  <app-subscriber-card
+    [profile] = "profile"
+  ></app-subscriber-card>
+}
+
+<div class="mt20 to-subscribers">
+  <a
+    [routerLink]="['/subscribers']"
+    class="to-subscribers-link medium-text">
+    Все подписчики
+  </a>
+    <img
+      src="/assets/svg/arrow.svg"
+      alt=""
+      class="to-subscribers-icon">
+</div>
+
+<footer class="sidebar__footer">
+  @if (me(); as me) {
+    @if (me.avatarUrl) {
+    <img [src]=`${profileService.baseApiUrl}${me.avatarUrl}` alt="">
+    } @else {
+    <img src="/assets/imgs/img-placeholder.png" alt="">
+    }
+
+    <div class="medium-text username-text">{{ me.username }}</div>
+
+    <a [routerLink]="['settings']" class="settings-btn">
+      <img src="/assets/svg/settings.svg" alt="">
+    </a>
+  }
+</footer>
