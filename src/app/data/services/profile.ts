@@ -12,6 +12,7 @@ export class ProfileService {
   baseApiUrl = 'https://icherniakov.ru/yt-course/';
 
   me = signal<Profile | null>(null)
+  filteredProfiles = signal<Profile[]>([])
 
   getTestAccounts(){
     return this.http.get<Profile[]>(`${this.baseApiUrl}account/test_accounts`) //Get запрос с сервера
@@ -48,6 +49,21 @@ export class ProfileService {
     return this.http.post<Profile>(
       `${this.baseApiUrl}account/upload_image`,
       fd
+    )
+  }
+
+  filterProfiles(params: Record<string, any>){
+    // Если params пустой объект (например, из startWith({})), API обычно вернёт
+    // полный список (пагинированный). Если в params есть пустые строки (''),
+    // они уйдут как query-параметры — убедитесь, что бэкенд трактует их как
+    // отсутствие фильтра. Результат сохраняем в сигнал filteredProfiles,
+    // чтобы им могли пользоваться другие компоненты (списки результатов и т.п.).
+    return this.http.get<Pageble<Profile>>(
+      `${this.baseApiUrl}account/accounts`,
+      {
+        params
+      }).pipe(
+        tap(res => this.filteredProfiles.set(res.items))
     )
   }
 }
